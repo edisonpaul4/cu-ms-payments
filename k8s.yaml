@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservicio
+  name: cu-ms-payments
   namespace: edisonpaul4-dev
   labels:
-    app: microservicio
+    app: cu-ms-payments
     areanegocio: pagos
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservicio
+      app: cu-ms-payments
   template:
     metadata:
       labels:
-        app: microservicio
+        app: cu-ms-payments
     spec:
       containers:
         - name: hola-mundo
@@ -30,19 +30,19 @@ spec:
               memory: "512Mi"
           envFrom:
             - configMapRef:
-                name: microservicio
+                name: cu-ms-payments
             - secretRef:
-                name: microservicio
+                name: cu-ms-payments
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: microservicio
+  name: cu-ms-payments
   namespace: edisonpaul4-dev
 spec:
   selector:
-    app: microservicio
+    app: cu-ms-payments
   ports:
     - protocol: TCP
       port: 3000
@@ -51,7 +51,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: microservicio
+  name: cu-ms-payments
   namespace: edisonpaul4-dev
 data:
   LOG_LEVEL: debug
@@ -59,7 +59,7 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: microservicio
+  name: cu-ms-payments
   namespace: edisonpaul4-dev
 data:
   DATABASE_PASSWORD: U3VwZXJTZWd1cm8yMDI1
@@ -67,13 +67,13 @@ data:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: microservicio
+  name: cu-ms-payments
   namespace: edisonpaul4-dev
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: microservicio
+    name: cu-ms-payments
   minReplicas: 2
   maxReplicas: 6
   metrics:
