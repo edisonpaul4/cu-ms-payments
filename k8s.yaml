@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: hola-mundo
-          image: edisonpaul4/hola-mundo:9
+          image: edisonpaul4/cu-ms-payments:1
           ports:
             - containerPort: 3000
           resources:
