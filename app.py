@@ -12,7 +12,7 @@ PORT = 3000
 class HolaMundoHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f"[{timestamp}] Solicitud GET recibida", file=sys.stdout)
+        print(f"[{timestamp}] Solicitud GET recibida PEPITO", file=sys.stdout)
         print(f"[{timestamp}] Path: {self.path}", file=sys.stdout)
         
         if self.path == '/startup':
