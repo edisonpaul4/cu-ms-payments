@@ -10,10 +10,14 @@ port: 3000
 # Variables de entorno (ConfigMap)
 configMap:
   LOG_LEVEL: "debug"
+  DATABASE_HOST: "mi-postgres-postgresql-primary.edisonpaul4-dev.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "postgres"
+  DATABASE_USER: "postgres"
 
 # Secrets (valores en base64)
 secret:
-  DATABASE_PASSWORD: U3VwZXJTZWd1cm8yMDI1
+  DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw==
 
 # Horizontal Pod Autoscaler
 hpa:
