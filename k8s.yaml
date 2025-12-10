@@ -81,7 +81,11 @@ metadata:
   name: cu-ms-payments
   namespace: edisonpaul4-dev
 data:
-  LOG_LEVEL: debug
+  LOG_LEVEL: "debug"
+  DATABASE_HOST: "mi-postgres-postgresql-primary.edisonpaul4-dev.svc.cluster.local"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "postgres"
+  DATABASE_USER: "postgres"
 ---
 apiVersion: v1
 kind: Secret
@@ -89,7 +93,7 @@ metadata:
   name: cu-ms-payments
   namespace: edisonpaul4-dev
 data:
-  DATABASE_PASSWORD: U3VwZXJTZWd1cm8yMDI1
+  DATABASE_PASSWORD: TWlQYXNzd29yZFNlZ3VybzEyMw==
 ---
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
