@@ -10,7 +10,7 @@ import json
 from datetime import datetime
 
 try:
-    import psycopg
+    import psycopg2
     POSTGRES_AVAILABLE = True
 except ImportError:
     POSTGRES_AVAILABLE = False
@@ -27,13 +27,13 @@ DB_PASSWORD = os.environ.get('DATABASE_PASSWORD', '')
 def get_users():
     """Conecta a PostgreSQL y obtiene los usuarios"""
     if not POSTGRES_AVAILABLE:
-        return {"error": "psycopg no está instalado"}
+        return {"error": "psycopg2 no está instalado"}
     
     try:
-        conn = psycopg.connect(
+        conn = psycopg2.connect(
             host=DB_HOST,
             port=DB_PORT,
-            dbname=DB_NAME,
+            database=DB_NAME,
             user=DB_USER,
             password=DB_PASSWORD
         )
